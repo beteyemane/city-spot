@@ -1,5 +1,5 @@
 import React from 'react'
-import  { Form, Segment, Button, Header, Icon, Grid, Container, Divider, Message } from 'semantic-ui-react'
+import  { Form, Segment, Button, Header, Icon, Grid, Container, Divider, Message, Input} from 'semantic-ui-react'
 import ReactFilestack from 'filestack-react'
 
 
@@ -33,30 +33,14 @@ class PostFormModal extends React.Component{
               <Form onSubmit={handleSubmitPost}>
 
 
-                {!this.state.imageSuccess &&
                 <Form.Field required>
-                  <ReactFilestack
-                    apikey={ `${process.env.FILE_STACK_KEY}` }
-                    mode={'pick'}
-                    onSuccess={(res) => {
-                      this.changeSuccess()
-                      handleChangePost({
-                        target: {
-                          name: 'image',
-                          value: res.filesUploaded[0].url
-                        }
-                      })
-                    }
-                    }
-                    onError={(e) => console.log(e)}
-                    buttonText={'Add An Image'}
-                    buttonClass={'button is-rounded'}
+                  <label>Add an image url</label>
+                  <Input
+                    onChange={handleChangePost}
+                    placeholder='Image'
+                    name='image'
                   />
                 </Form.Field>
-                }
-
-
-
 
                 <Form.Field>
                   <Form.TextArea
