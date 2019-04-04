@@ -87,26 +87,14 @@ const RegisterForm = ({ handleChange, handleSubmit, postData, errors, imageSucce
               />
             </Form.Field>
 
-            {/* filestack component, using handle change to manually set name and value for postData in state */}
-            {!imageSuccess &&
-              <Form.Field required>
-                <ReactFilestack
-                  apikey={ `${process.env.FILE_STACK_KEY}` }
-                  mode={'pick'}
-                  onSuccess={(res) => {
-                    changeSuccess()
-                    handleChange({
-                      target: {
-                        name: 'image',
-                        value: res.filesUploaded[0].url
-                      }})
-                  }}
-                  onError={(e) => console.log(e)}
-                  buttonText={'Add An Image'}
-                  buttonClass={'button is-rounded'}
-                />
-              </Form.Field>
-            }
+            <Form.Field required>
+              <label>Add an image url</label>
+              <Input
+                onChange={handleChange}
+                placeholder='Image'
+                name='image'
+              />
+            </Form.Field>
 
             <Form.Field required>
               <label>Please Make a Bio</label>

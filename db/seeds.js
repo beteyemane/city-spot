@@ -7,6 +7,8 @@ mongoose.Promise = Promise
 
 const Continent = require('../models/continent')
 const City = require('../models/city')
+const Post = require('../models/post')
+const User = require('../models/user')
 
 mongoose.connect(process.env.MONGODB_URI, (err, db) => {
   db.dropDatabase()
@@ -1114,10 +1116,51 @@ mongoose.connect(process.env.MONGODB_URI, (err, db) => {
           population: '150,880',
           continent: data.continentOceania
         })
-
       })
-
     })
+    //
+    // .then(data => {
+    //   return Promise.props({
+    //     post1: Post.create({
+    //       city: data.city150,
+    //       user: data.user1,
+    //       image: 'https://media.tfehotels.com/media/checkedin/2016/07/Darwin-Waves-Pool-Mobile.jpg',
+    //       caption: 'Great beach!'
+    //     })
+    //   })
+    // })
+
+    .then(() => {
+      return Promise.props({
+        user1: User.create({
+          username: 'beteyemane',
+          firstName: 'Bete',
+          lastName: 'Yemane',
+          email: 'beteyemane@hotmail.com',
+          image: 'https://scontent-lhr3-1.xx.fbcdn.net/v/t1.0-9/21687826_10156595779103332_5772832864508950442_n.jpg?_nc_cat=109&_nc_ht=scontent-lhr3-1.xx&oh=93190d143c91440de0eb45c19c11bd8b&oe=5D0ADD55',
+          bio: 'Love travelling',
+          password: 'password',
+          passwordConfirmation: 'password',
+          gender: 'female'
+        })
+      })
+    })
+    .then(() => {
+      return Promise.props({
+        user1: User.create({
+          username: 'danieljohnson',
+          firstName: 'Daniel',
+          lastName: 'Johnson',
+          email: 'danieljohnson@hotmail.com',
+          image: 'https://static1.squarespace.com/static/542e86ece4b03f0fd61c61f7/t/57b0e16d9de4bb3199d0d9d4/1471209860389/danielCiobanuPoster.JPG?format=2500w',
+          bio: 'I love seeing the world',
+          password: 'password',
+          passwordConfirmation: 'password',
+          gender: 'male'
+        })
+      })
+    })
+
 
 
     .then(() => console.log('Database successfully seeded'))
