@@ -1,10 +1,6 @@
 
 # General Assembly Project 3: City Spot
 
-## Project Brief
-
-A group project to build a fullstack React application.
-
 Bete Yemane | Josh King | Lauren Bell | Alessandro Lepri
 
 ## Project Brief
@@ -129,5 +125,3 @@ One of the biggest wins was the team communication. We had a group Slack channel
 * To follow the conventions of a social media platform, and for users to engage with each other to have a sense of community, I'd like to implement user messaging & friend requests.
 
 * A search bar for the Continent and City pages to improve user navigation.
-
->>>>>>> a28551aa4b8f8ecc33b5fc2d04d0de3c50f41e2a
